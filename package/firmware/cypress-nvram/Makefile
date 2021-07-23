@@ -120,4 +120,4 @@ define Package/cypress-nvram-43455-sdio-rpi-4b/install
 		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt
 endef
 
-$(eval $(call BuildPackage,cypress-nvram-43455-sdio-rpi-4b))
+$(eval $(call BuildPackage,cypress-nvram-43456-sdio-rpi-cm4))
