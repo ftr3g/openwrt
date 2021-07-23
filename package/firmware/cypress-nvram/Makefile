@@ -103,3 +103,21 @@ define Package/cypress-nvram-43455-sdio-rpi-4b/install
 endef
 
 $(eval $(call BuildPackage,cypress-nvram-43455-sdio-rpi-4b))
+
+# Cypress 43456 SDIO Raspberry Pi CM 4 NVRAM
+define Package/cypress-nvram-43456-sdio-rpi-cm4
+  $(Package/cypress-nvram-default)
+  TITLE:=CYW43456 NVRAM for Raspberry Pi CM 4
+  DEPENDS:=@TARGET_bcm27xx
+  PROVIDES:=brcmfmac-firmware-43455-sdio-rpi-4b
+  CONFLICTS:=brcmfmac-firmware-43455-sdio-rpi-4b
+endef
+
+define Package/cypress-nvram-43455-sdio-rpi-4b/install
+	$(INSTALL_DIR) $(1)/lib/firmware/brcm
+	$(INSTALL_DATA) \
+		$(PKG_BUILD_DIR)/brcmfmac43455-sdio.raspberrypi,4-model-b.txt \
+		$(1)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt
+endef
+
+$(eval $(call BuildPackage,cypress-nvram-43455-sdio-rpi-4b))
